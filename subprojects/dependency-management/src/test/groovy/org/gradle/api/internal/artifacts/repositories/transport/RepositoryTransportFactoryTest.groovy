@@ -30,8 +30,6 @@ import org.gradle.internal.resource.transport.ResourceConnectorRepositoryTranspo
 import org.gradle.internal.verifier.HttpRedirectVerifier
 import org.gradle.util.TestUtil
 import spock.lang.Specification
-import spock.lang.Unroll
-
 class RepositoryTransportFactoryTest extends Specification {
 
     def connectorFactory1 = Mock(ResourceConnectorFactory)
@@ -114,7 +112,6 @@ class RepositoryTransportFactoryTest extends Specification {
         new GoodCredentialsAuthentication('good') | ['protocol2a', 'protocol2b']
     }
 
-    @Unroll
     def "should throw when using invalid credentials type"() {
         authentication*.credentials = credentials
 

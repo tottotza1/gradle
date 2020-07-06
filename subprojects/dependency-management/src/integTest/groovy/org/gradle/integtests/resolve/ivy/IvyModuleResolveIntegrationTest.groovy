@@ -19,8 +19,6 @@ package org.gradle.integtests.resolve.ivy
 import org.gradle.integtests.fixtures.AbstractHttpDependencyResolutionTest
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.integtests.fixtures.resolve.ResolveTestFixture
-import spock.lang.Unroll
-
 class IvyModuleResolveIntegrationTest extends AbstractHttpDependencyResolutionTest {
     @ToBeFixedForInstantExecution
     def "wildcard on LHS of configuration mapping includes all public configurations of target module"() {
@@ -143,7 +141,6 @@ task retrieve(type: Sync) {
         failure.assertHasCause("Test:target:1.0 declares a dependency from configuration 'something' to configuration 'unknown' which is not declared in the descriptor for test:b:1.0.")
     }
 
-    @Unroll
     def "correctly handles configuration mapping rule '#rule'"() {
         given:
         buildFile << """
