@@ -21,10 +21,7 @@ import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import spock.lang.Ignore
 import spock.lang.Issue
-import spock.lang.Unroll
-
 class FileCollectionIntegrationTest extends AbstractIntegrationSpec implements TasksWithInputsAndOutputs {
-    @Unroll
     def "can use 'as' operator with #type"() {
         buildFile << """
             def fileCollection = files("input.txt")
