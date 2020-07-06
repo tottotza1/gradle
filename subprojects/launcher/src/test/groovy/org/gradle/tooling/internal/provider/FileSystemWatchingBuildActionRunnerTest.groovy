@@ -24,9 +24,6 @@ import org.gradle.internal.invocation.BuildController
 import org.gradle.internal.service.ServiceRegistry
 import org.gradle.internal.watch.vfs.WatchingAwareVirtualFileSystem
 import spock.lang.Specification
-import spock.lang.Unroll
-
-@Unroll
 class FileSystemWatchingBuildActionRunnerTest extends Specification {
 
     def virtualFileSystem = Mock(WatchingAwareVirtualFileSystem)
