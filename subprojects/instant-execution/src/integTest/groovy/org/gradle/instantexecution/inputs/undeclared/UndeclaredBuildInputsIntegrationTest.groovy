@@ -20,10 +20,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.instantexecution.AbstractInstantExecutionIntegrationTest
 import spock.lang.Issue
-import spock.lang.Unroll
-
 class UndeclaredBuildInputsIntegrationTest extends AbstractInstantExecutionIntegrationTest {
-    @Unroll
     def "reports build logic reading a system property set #mechanism.description via the Java API"() {
         buildFile << """
             // not declared
@@ -81,7 +78,6 @@ class UndeclaredBuildInputsIntegrationTest extends AbstractInstantExecutionInteg
         outputContains("CI3 = Value")
     }
 
-    @Unroll
     def "reports buildSrc build logic and tasks reading a system property set #mechanism.description via the Java API"() {
         def buildSrcBuildFile = file("buildSrc/build.gradle")
         buildSrcBuildFile << """
@@ -109,7 +105,6 @@ class UndeclaredBuildInputsIntegrationTest extends AbstractInstantExecutionInteg
         mechanism << SystemPropertyInjection.all("CI", "false")
     }
 
-    @Unroll
     def "build logic can read system property with no value without declaring access and loading fails when value set using #mechanism.description"() {
         file("buildSrc/src/main/java/SneakyPlugin.java") << """
             import ${Project.name};
@@ -152,7 +147,6 @@ class UndeclaredBuildInputsIntegrationTest extends AbstractInstantExecutionInteg
         mechanism << SystemPropertyInjection.all("CI", "false")
     }
 
-    @Unroll
     def "build logic can read system property with a default using #read.javaExpression without declaring access"() {
         file("buildSrc/src/main/java/SneakyPlugin.java") << """
             import ${Project.name};
@@ -208,7 +202,6 @@ class UndeclaredBuildInputsIntegrationTest extends AbstractInstantExecutionInteg
         SystemPropertyRead.longGetLongWithLongDefault("CI", 123)                    | "123"        | "456"
     }
 
-    @Unroll
     def "build logic can read standard system property #prop without declaring access"() {
         file("buildSrc/src/main/java/SneakyPlugin.java") << """
             import ${Project.name};
