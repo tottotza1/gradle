@@ -15,17 +15,16 @@
  */
 package gradlebuild
 
-import libraries
-import library
-import testLibrary
-import gradlebuild.basics.accessors.groovy
 import gradlebuild.basics.BuildEnvironment
-import gradlebuild.basics.tasks.ClasspathManifest
+import gradlebuild.basics.accessors.groovy
 import gradlebuild.basics.extension.vendorAndMajorVersion
+import gradlebuild.basics.tasks.ClasspathManifest
 import gradlebuild.jvm.argumentproviders.CiEnvironmentProvider
 import gradlebuild.jvm.extension.UnitTestAndCompileExtension
+import libraries
+import library
 import org.gradle.internal.os.OperatingSystem
-import java.util.concurrent.Callable
+import testLibrary
 import java.util.jar.Attributes
 
 plugins {
@@ -127,6 +126,7 @@ fun addDependencies() {
         testRuntimeOnly(library("junit5_vintage"))
         testImplementation(library("groovy"))
         testImplementation(testLibrary("spock"))
+        testRuntimeOnly(testLibrary("spock_unroll"))
         testRuntimeOnly(testLibrary("bytebuddy"))
         testRuntimeOnly(library("objenesis"))
 
