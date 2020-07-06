@@ -23,8 +23,6 @@ import org.gradle.test.fixtures.file.TestFile
 import org.gradle.util.Requires
 import org.gradle.util.TestPrecondition
 import org.junit.Rule
-import spock.lang.Unroll
-
 @Requires(TestPrecondition.JDK9_OR_LATER)
 class SamplesApplicationIntegrationTest extends AbstractIntegrationSpec {
 
@@ -34,7 +32,6 @@ class SamplesApplicationIntegrationTest extends AbstractIntegrationSpec {
         executer.withRepositoryMirrors()
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can run the application using run task with #dsl dsl"() {
         when:
@@ -48,7 +45,6 @@ class SamplesApplicationIntegrationTest extends AbstractIntegrationSpec {
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can build and run the installed application with #dsl dsl"() {
         when:
@@ -68,7 +64,6 @@ class SamplesApplicationIntegrationTest extends AbstractIntegrationSpec {
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     def "can build and run the zipped distribution with #dsl dsl"() {
         when:
         def dslDir = sample.dir.file(dsl)

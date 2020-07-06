@@ -22,8 +22,6 @@ import org.gradle.integtests.fixtures.Sample
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.test.fixtures.file.TestFile
 import org.junit.Rule
-import spock.lang.Unroll
-
 import java.util.jar.Manifest
 
 import static org.hamcrest.CoreMatchers.equalTo
@@ -39,7 +37,6 @@ class SamplesJavaQuickstartIntegrationTest extends AbstractIntegrationSpec {
         executer.expectDeprecationWarning()
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can build and upload jar with #dsl dsl"() {
         given:
