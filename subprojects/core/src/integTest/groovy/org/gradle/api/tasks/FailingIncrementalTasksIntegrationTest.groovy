@@ -18,9 +18,6 @@ package org.gradle.api.tasks
 
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
-import spock.lang.Unroll
-
-@Unroll
 class FailingIncrementalTasksIntegrationTest extends AbstractIntegrationSpec {
 
     def "consecutively failing task has correct up-to-date status and failure"() {
@@ -61,7 +58,7 @@ class FailingIncrementalTasksIntegrationTest extends AbstractIntegrationSpec {
             class IncrementalTask extends DefaultTask {
                 @InputDirectory File sourceDir
                 @OutputDirectory File destinationDir
-                
+
                 @TaskAction
                 void process(IncrementalTaskInputs inputs) {
                     project.file("\$destinationDir/output.txt").text = "output"
