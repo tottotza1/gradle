@@ -814,8 +814,8 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         run language.compileTaskName
     }
 
-    @Unroll("detects changes to class referenced through a #modifier field")
-    def "detects changes to class referenced through a field"() {
+    @Unroll
+    def "detects changes to class referenced through a #modifier field"() {
         given:
         source """class A {
     $modifier B b;
@@ -838,8 +838,8 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         modifier << ['', 'static']
     }
 
-    @Unroll("detects changes to class referenced through a #modifier array field")
-    def "detects changes to class referenced through an array field"() {
+    @Unroll
+    def "detects changes to class referenced through a #modifier array field"() {
         given:
         source """class A {
     $modifier B[] b;
@@ -862,8 +862,8 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         modifier << ['', 'static']
     }
 
-    @Unroll("detects changes to class referenced through a #modifier multi-dimensional array field")
-    def "detects changes to class referenced through an multi-dimensional array field"() {
+    @Unroll
+    def "detects changes to class referenced through a #modifier multi-dimensional array field"() {
         given:
         source """class A {
     $modifier B[][] b;

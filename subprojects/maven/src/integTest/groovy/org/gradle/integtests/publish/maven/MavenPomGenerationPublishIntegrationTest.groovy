@@ -273,9 +273,9 @@ configurations {
     }
 
 
-    @Unroll("'#gradleConfiguration' dependencies end up in '#mavenScope' scope with '#plugin' plugin")
+    @Unroll
     @ToBeFixedForInstantExecution
-    def "maps dependencies in the correct Maven scope"() {
+    def "'#gradleConfiguration' dependencies end up in '#mavenScope' scope with '#plugin' plugin"() {
         file("settings.gradle") << 'include "b"'
         buildFile << """
 apply plugin: "$plugin"
