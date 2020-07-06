@@ -25,8 +25,6 @@ import org.gradle.test.fixtures.ConcurrentTestUtil
 import org.gradle.test.fixtures.server.http.BlockingHttpServer
 import org.junit.Rule
 import spock.lang.IgnoreIf
-import spock.lang.Unroll
-
 import static org.gradle.internal.logging.console.jvm.TestedProjectFixture.*
 
 @IgnoreIf({ GradleContextualExecuter.isParallel() })
@@ -46,7 +44,6 @@ abstract class AbstractConsoleJvmTestWorkerFunctionalTest extends AbstractIntegr
         server.start()
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(
         because = "test-ng",
         skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT,
@@ -79,7 +76,6 @@ abstract class AbstractConsoleJvmTestWorkerFunctionalTest extends AbstractIntegr
         JavaTestClass.SHORTENED_TEST1 | JavaTestClass.SHORTENED_TEST2 | 'shortened'
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(
         because = "test-ng",
         skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT,
