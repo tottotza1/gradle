@@ -27,8 +27,6 @@ import org.gradle.util.Resources
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
 import org.junit.Rule
-import spock.lang.Unroll
-
 class SamplesMavenPomGenerationIntegrationTest extends AbstractSampleIntegrationTest {
 
     @Rule
@@ -43,7 +41,6 @@ class SamplesMavenPomGenerationIntegrationTest extends AbstractSampleIntegration
         using m2 //uploadArchives leaks into local ~/.m2
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can deploy to local repository with #dsl dsl"() {
         given:
@@ -68,7 +65,6 @@ class SamplesMavenPomGenerationIntegrationTest extends AbstractSampleIntegration
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can install to local repository with #dsl dsl"() {
         given:
@@ -103,7 +99,6 @@ class SamplesMavenPomGenerationIntegrationTest extends AbstractSampleIntegration
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(iterationMatchers = ".*kotlin dsl.*")
     def "write new pom with #dsl dsl"() {
         given:
@@ -119,7 +114,6 @@ class SamplesMavenPomGenerationIntegrationTest extends AbstractSampleIntegration
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "write deployer pom with #dsl dsl"() {
         given:

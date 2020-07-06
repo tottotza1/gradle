@@ -27,8 +27,6 @@ import org.gradle.util.GradleVersion
 import org.junit.Rule
 import org.spockframework.util.TextUtil
 import spock.lang.Issue
-import spock.lang.Unroll
-
 import static org.gradle.test.matchers.UserAgentMatcher.matchesNameAndVersion
 import static org.hamcrest.core.StringContains.containsString
 
@@ -448,7 +446,6 @@ uploadArchives {
         customLocalRepo.module("group", "root", "1.0").assertPublishedAsJavaModule()
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can publish to an authenticated HTTP repository using #authScheme auth"() {
         given:

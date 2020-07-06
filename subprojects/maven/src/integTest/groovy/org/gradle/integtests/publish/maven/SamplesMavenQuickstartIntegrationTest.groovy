@@ -24,8 +24,6 @@ import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.integtests.fixtures.Sample
 import org.gradle.util.Resources
 import org.junit.Rule
-import spock.lang.Unroll
-
 class SamplesMavenQuickstartIntegrationTest extends AbstractSampleIntegrationTest {
 
     @Rule
@@ -38,7 +36,6 @@ class SamplesMavenQuickstartIntegrationTest extends AbstractSampleIntegrationTes
         using m2
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can publish to a local repository with #dsl dsl"() {
         given:
@@ -59,7 +56,6 @@ class SamplesMavenQuickstartIntegrationTest extends AbstractSampleIntegrationTes
         dsl << ['groovy', 'kotlin']
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "can install to local repository with #dsl dsl"() {
         given:

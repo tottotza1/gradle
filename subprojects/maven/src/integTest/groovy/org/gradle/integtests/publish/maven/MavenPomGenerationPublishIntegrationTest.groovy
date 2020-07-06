@@ -18,8 +18,6 @@ package org.gradle.integtests.publish.maven
 
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
-import spock.lang.Unroll
-
 import static org.gradle.util.TextUtil.normaliseLineSeparators
 
 // this spec documents the status quo, not a desired behavior
@@ -31,7 +29,6 @@ class MavenPomGenerationPublishIntegrationTest extends AbstractIntegrationSpec {
         using m2 //uploadArchives leaks into local ~/.m2
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "how configuration of archive task affects generated POM"() {
         buildFile << """
@@ -74,7 +71,6 @@ uploadArchives {
         "myBaseName" | "2.3"      | "war"        | null          | "myBaseName"  | "1.9"      | "war"
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "how configuration of mavenDeployer.pom object affects generated POM"() {
         buildFile << """
@@ -119,7 +115,6 @@ uploadArchives {
         "deployer.group" | "deployerArtifactId" | "2.7"           | "jar"             | "deployer.group" | "deployerArtifactId" | "2.7"      | "war"
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "configuration attributes have no influence on generated POM file"() {
         buildFile << """
@@ -178,7 +173,6 @@ configurations {
         ]
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "attributes have no influence on transitive dependencies in POM file"() {
         file("settings.gradle") << 'include "b"'
@@ -273,7 +267,6 @@ configurations {
     }
 
 
-    @Unroll
     @ToBeFixedForInstantExecution
     def "'#gradleConfiguration' dependencies end up in '#mavenScope' scope with '#plugin' plugin"() {
         file("settings.gradle") << 'include "b"'

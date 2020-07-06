@@ -19,8 +19,6 @@ package org.gradle.integtests.publish.maven
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import spock.lang.Issue
-import spock.lang.Unroll
-
 class MavenVersionRangePublishIntegrationTest extends AbstractIntegrationSpec {
 
     def setup() {
@@ -74,7 +72,6 @@ uploadArchives {
     }
 
     @Issue("GRADLE-3233")
-    @Unroll
     @ToBeFixedForInstantExecution
     def "publishes POM dependency with #versionType version for Gradle dependency with null version"() {
         given:
