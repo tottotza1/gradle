@@ -22,11 +22,7 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import spock.lang.Issue
-import spock.lang.Unroll
-
-@Unroll
 class TaskUpToDateIntegrationTest extends AbstractIntegrationSpec {
-    @Unroll
     @Issue("https://issues.gradle.org/browse/GRADLE-3540")
     def "order of #annotation marks task not up-to-date"() {
         buildFile << """

@@ -27,8 +27,6 @@ import org.gradle.integtests.fixtures.versions.ReleasedVersionDistributions
 import org.gradle.internal.jvm.Jvm
 import org.junit.Assume
 import spock.lang.Issue
-import spock.lang.Unroll
-
 import static org.gradle.integtests.fixtures.StaleOutputJavaProject.JAR_TASK_NAME
 import static org.gradle.util.GFileUtils.forceDelete
 
@@ -49,7 +47,6 @@ class StaleOutputHistoryLossIntegrationTest extends AbstractIntegrationSpec {
     }
 
     @Issue("https://github.com/gradle/gradle/issues/821")
-    @Unroll
     def "production class files are removed in a single project build for #description"() {
         given:
         def javaProject = new StaleOutputJavaProject(testDirectory, buildDirName)
@@ -172,7 +169,6 @@ class StaleOutputHistoryLossIntegrationTest extends AbstractIntegrationSpec {
         javaProject.assertBuildTasksSkipped(result)
     }
 
-    @Unroll
     @Issue("https://github.com/gradle/gradle/issues/821")
     def "production class files are removed in a multi-project build executed #description"(String[] arguments, String description) {
         given:
@@ -218,7 +214,6 @@ class StaleOutputHistoryLossIntegrationTest extends AbstractIntegrationSpec {
         [JAR_TASK_NAME, '--parallel', '--configure-on-demand'] | 'in parallel and configure on demand enabled'
     }
 
-    @Unroll
     @Issue("https://github.com/gradle/gradle/issues/821")
     def "production class files are removed in a multi-project build executed when a single project is built #description"(String singleTask, List arguments, String description) {
         given:
