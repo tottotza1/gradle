@@ -19,8 +19,6 @@ package org.gradle.java.compile.incremental
 import org.gradle.integtests.fixtures.CompiledLanguage
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import spock.lang.Issue
-import spock.lang.Unroll
-
 abstract class AbstractSourceIncrementalCompilationIntegrationTest extends AbstractJavaGroovyIncrementalCompilationSupport {
 
     abstract void recompiledWithFailure(String expectedFailure, String... recompiledClasses)
@@ -658,7 +656,6 @@ sourceSets {
         outputs.recompiledClasses("B", "A")
     }
 
-    @Unroll
     def "recompiles classes from extra source directory provided as #type"() {
         given:
         buildFile << "${language.compileTaskName}.source $method('extra')"
@@ -682,7 +679,6 @@ sourceSets {
         "DirectoryTree" | "fileTree"
     }
 
-    @Unroll
     def "detects changes to source in extra source directory provided as #type"() {
         buildFile << "${language.compileTaskName}.source $method('extra')"
 
@@ -814,7 +810,6 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         run language.compileTaskName
     }
 
-    @Unroll
     def "detects changes to class referenced through a #modifier field"() {
         given:
         source """class A {
@@ -838,7 +833,6 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         modifier << ['', 'static']
     }
 
-    @Unroll
     def "detects changes to class referenced through a #modifier array field"() {
         given:
         source """class A {
@@ -862,7 +856,6 @@ dependencies { implementation 'net.sf.ehcache:ehcache:2.10.2' }
         modifier << ['', 'static']
     }
 
-    @Unroll
     def "detects changes to class referenced through a #modifier multi-dimensional array field"() {
         given:
         source """class A {
