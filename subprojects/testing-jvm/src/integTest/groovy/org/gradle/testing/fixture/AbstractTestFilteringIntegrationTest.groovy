@@ -19,8 +19,6 @@ import org.gradle.integtests.fixtures.DefaultTestExecutionResult
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.integtests.fixtures.MultiVersionIntegrationSpec
 import spock.lang.Issue
-import spock.lang.Unroll
-
 abstract class AbstractTestFilteringIntegrationTest extends MultiVersionIntegrationSpec {
 
     abstract String getImports()
@@ -150,7 +148,6 @@ abstract class AbstractTestFilteringIntegrationTest extends MultiVersionIntegrat
         result.testClass("Foo2Test").assertTestsExecuted("pass2")
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(bottomSpecs = "TestNGFilteringIntegrationTest")
     def "reports when no matching methods found"() {
         file("src/test/java/org/gradle/FooTest.java") << """
@@ -231,7 +228,6 @@ abstract class AbstractTestFilteringIntegrationTest extends MultiVersionIntegrat
         new DefaultTestExecutionResult(testDirectory).testClass("FooTest").assertTestsExecuted("pass", "pass2")
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(bottomSpecs = "TestNGFilteringIntegrationTest")
     def "can select multiple tests from commandline #scenario"() {
         given:
@@ -287,7 +283,6 @@ abstract class AbstractTestFilteringIntegrationTest extends MultiVersionIntegrat
     }
 
     @Issue("https://github.com/gradle/gradle/issues/1571")
-    @Unroll
     @ToBeFixedForInstantExecution(bottomSpecs = "TestNGFilteringIntegrationTest")
     def "option --tests filter in combined with #includeType"() {
         given:

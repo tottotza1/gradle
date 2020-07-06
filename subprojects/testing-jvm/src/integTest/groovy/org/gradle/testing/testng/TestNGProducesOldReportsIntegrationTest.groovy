@@ -19,8 +19,6 @@ import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.integtests.fixtures.JUnitXmlTestExecutionResult
 import org.gradle.integtests.fixtures.TestNGExecutionResult
-import spock.lang.Unroll
-
 public class TestNGProducesOldReportsIntegrationTest extends AbstractIntegrationSpec {
     def setup() {
         executer.noExtraLogging()
@@ -61,7 +59,6 @@ test {
         new JUnitXmlTestExecutionResult(file(".")).hasJUnitXmlResults()
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution
     "can generate the old xml reports"() {
         given:

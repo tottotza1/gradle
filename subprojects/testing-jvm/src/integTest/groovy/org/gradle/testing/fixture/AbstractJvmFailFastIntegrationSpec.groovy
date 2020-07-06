@@ -27,8 +27,6 @@ import org.gradle.test.fixtures.server.http.BlockingHttpServer
 import org.hamcrest.CoreMatchers
 import org.junit.Rule
 import spock.lang.IgnoreIf
-import spock.lang.Unroll
-
 import static org.gradle.testing.fixture.JvmBlockingTestClassGenerator.*
 
 abstract class AbstractJvmFailFastIntegrationSpec extends AbstractIntegrationSpec implements RichConsoleStyling {
@@ -41,7 +39,6 @@ abstract class AbstractJvmFailFastIntegrationSpec extends AbstractIntegrationSpe
         generator = new JvmBlockingTestClassGenerator(testDirectory, server, testAnnotationClass(), testDependency(), testFrameworkConfiguration())
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(
         skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT,
         bottomSpecs = "TestNGFailFastIntegrationTest"
@@ -72,7 +69,6 @@ abstract class AbstractJvmFailFastIntegrationSpec extends AbstractIntegrationSpe
         'failFast = false' | ['test']                   | 'test { failFast = false }'
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(
         skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT,
         bottomSpecs = "TestNGFailFastIntegrationTest"
@@ -102,7 +98,6 @@ abstract class AbstractJvmFailFastIntegrationSpec extends AbstractIntegrationSpe
         '--fail-fast'     | ['test', '--fail-fast']    | ''
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(
         skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT,
         bottomSpecs = "TestNGFailFastIntegrationTest"

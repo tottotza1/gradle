@@ -26,8 +26,6 @@ import org.gradle.util.TestPrecondition
 import org.hamcrest.CoreMatchers
 import spock.lang.IgnoreIf
 import spock.lang.Issue
-import spock.lang.Unroll
-
 import static org.gradle.testing.fixture.JUnitCoverage.JUNIT_4_LATEST
 import static org.gradle.testing.fixture.JUnitCoverage.JUNIT_VINTAGE_JUPITER
 import static org.hamcrest.CoreMatchers.containsString
@@ -185,7 +183,6 @@ class TestingIntegrationTest extends JUnitMultiVersionIntegrationSpec {
     }
 
     @Issue("https://issues.gradle.org/browse/GRADLE-2313")
-    @Unroll
     @ToBeFixedForInstantExecution(iterationMatchers = ".*useTestNG.*")
     def "can clean test after extracting class file with #framework"() {
         when:

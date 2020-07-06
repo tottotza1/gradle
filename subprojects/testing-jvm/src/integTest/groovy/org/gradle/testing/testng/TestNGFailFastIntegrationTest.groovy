@@ -20,8 +20,6 @@ import org.gradle.integtests.fixtures.DefaultTestExecutionResult
 import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.testing.fixture.AbstractJvmFailFastIntegrationSpec
 import org.hamcrest.CoreMatchers
-import spock.lang.Unroll
-
 class TestNGFailFastIntegrationTest extends AbstractJvmFailFastIntegrationSpec {
     @Override
     String testAnnotationClass() {
@@ -42,7 +40,6 @@ class TestNGFailFastIntegrationTest extends AbstractJvmFailFastIntegrationSpec {
         """
     }
 
-    @Unroll
     @ToBeFixedForInstantExecution(skip = ToBeFixedForInstantExecution.Skip.LONG_TIMEOUT)
     def "parallel #parallel execution with #threadCount threads, #maxWorkers workers fails fast"() {
         given:
