@@ -893,7 +893,7 @@ See link:{gradle-issues}13507[gradle/gradle#13507].
 [[config_cache:not_yet_implemented:java_serialization]]
 === Java Object Serialization
 
-Gradle allows objects that support the [Java Object Serialization](https://docs.oracle.com/javase/8/docs/platform/serialization/spec/serialTOC.html) protocol to be stored in the configuration cache.
+Gradle allows objects that support the link:https://docs.oracle.com/javase/8/docs/platform/serialization/spec/serialTOC.html[Java Object Serialization] protocol to be stored in the configuration cache.
 
 The implementation is currently limited to serializable classes that implement the `java.io.Serializable` interface
 and define one of the following combination of methods:
