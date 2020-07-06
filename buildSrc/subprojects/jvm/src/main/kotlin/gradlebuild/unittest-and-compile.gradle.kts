@@ -217,6 +217,7 @@ fun configureTests() {
             }
             distribution {
                 maxLocalExecutors.set(0)
+                maxRemoteExecutors.set(100)
                 enabled.set(true)
                 when {
                     OperatingSystem.current().isLinux() -> requirements.set(listOf("os=linux"))
